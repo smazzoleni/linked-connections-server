@@ -72,29 +72,32 @@ The Web Server does not provide any functionality by itself, it needs at least o
     "storage": "/opt/linked-connections-data", //datasets storage path
     "datasets":[
         {
-            "companyName": "companyX",
-            "downloadUrl": "http://...",
+            "companyName": "tec",
+            "geographicArea": "http://sws.geonames.org/3337387", // Geo names URL for Wallonia
+            "downloadUrl": "http://opendata.tec-wl.be/Current%20GTFS/TEC-GTFS.zip",
             "downloadOnLaunch": true,
-            "updatePeriod": "0 0 2 * * *", //every day at 2am
-            "fragmentSize": 400000, //400 Kb
-            "realTimeData": {
-                "downloadUrl": "http://...",
-                "updatePeriod": "*/30 * * * * *", //every 30s
-                "fragmentTimeSpan": 600, // 10 minutes
-                "compressionPeriod": "0 0 3 * * *" //every day at 3am
-            },
+            "updatePeriod": "0 0 3 * * *", //every day at 3 am
+            "fragmentSize": 50000, // 100 Kb
             "baseURIs": {
-                "stop": "http://example.org/stops/{stop_id}",
-                "route": "http://example.org/routes/{routes.route_id}",
-                "trip": "http://example.org/trips/{trips.trip_id}",
-                "connection:" 'http://example.org/connections/{connection.departureTime(YYYYMMDD)}{connection.departureStop}{trips.trip_id}'
+                "stop": "https://data.tec.be/stops/{stop_id}",
+                "connection": "https://data.tec.be/connections/{routes.route_id}/{trips.trip_id}/{connection.departureStop}",
+                "trip": "https://data.tec.be/trips/{trips.trip_id}",
+                "route": "https://data.tec.be/routes/{routes.route_id}"
             }
         },
         {
-            "companyName": "companyY",
+            "companyName": "companyX",
+            "geographicArea": "http://sws.geonames.org/...",
             "downloadUrl": "http://...",
             "downloadOnLaunch": false,
-            "updatePeriod": "0 0 3 * * *", //every day at 3am
+            "updatePeriod": "0 0 2 * * *", //every day at 2 am
+            "fragmentSize": 400000, //400 Kb
+            "realTimeData": {
+                "downloadUrl": "http://...",
+                "updatePeriod": "*/30 * * * * *", //every 30 seconds
+                "fragmentTimeSpan": 600, // 10 minutes
+                "compressionPeriod": "0 0 3 * * *" //every day at 3 am
+            },
             "baseURIs": {
                 "stop": "http://example.org/stops/{stop_id}",
                 "route": "http://example.org/routes/{routes.route_id}",
