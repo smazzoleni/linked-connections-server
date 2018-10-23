@@ -70,6 +70,10 @@ The Web Server does not provide any functionality by itself, it needs at least o
 ```js
 {
     "storage": "/opt/linked-connections-data", //datasets storage path
+    "organization": {
+        "id": "https://...",
+        "name": "Organization name"
+    },
     "datasets":[
         {
             "companyName": "tec",
@@ -77,7 +81,7 @@ The Web Server does not provide any functionality by itself, it needs at least o
             "downloadUrl": "http://opendata.tec-wl.be/Current%20GTFS/TEC-GTFS.zip",
             "downloadOnLaunch": true,
             "updatePeriod": "0 0 3 * * *", //every day at 3 am
-            "fragmentSize": 50000, // 100 Kb
+            "fragmentSize": 50000, // 50 Kb
             "baseURIs": {
                 "stop": "https://data.tec.be/stops/{stop_id}",
                 "connection": "https://data.tec.be/connections/{routes.route_id}/{trips.trip_id}/{connection.departureStop}",
@@ -86,8 +90,9 @@ The Web Server does not provide any functionality by itself, it needs at least o
             }
         },
         {
-            "companyName": "companyX",
-            "geographicArea": "http://sws.geonames.org/...",
+            "companyName": "companyY",
+            "keywords": ["Keyword1", "Keyword2"],
+            "geographicArea": "http://sws.geonames.org/...", // Geo names URI
             "downloadUrl": "http://...",
             "downloadOnLaunch": false,
             "updatePeriod": "0 0 2 * * *", //every day at 2 am
