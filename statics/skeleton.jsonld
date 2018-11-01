@@ -4,7 +4,6 @@
     "lc":"http://semweb.mmlab.be/ns/linkedconnections#",
     "hydra":"http://www.w3.org/ns/hydra/core#",
     "gtfs":"http://vocab.gtfs.org/terms#",
-    "schema": "http://schema.org/",
     "Connection":"lc:Connection",
     "arrivalTime": {
       "@id": "lc:arrivalTime",
@@ -50,10 +49,6 @@
       "@type": "@id"
     },
     "gtfs:NotAvailable": {
-      "@type": "@id"
-    },
-    "operationZone": {
-      "@id": "schema:areaServed",
       "@type": "@id"
     },
     "hydra:next" : {
