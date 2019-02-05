@@ -1,0 +1,30 @@
+{
+    "storage": "/app/data",
+    "organization": {
+        "id": "https://example.org/your/URL",
+        "name": "Data publisher name"
+    },
+    "datasets": [
+        {
+            "companyName": "tec",
+            "keywords": [
+                "Buses",
+                "Stops"
+            ],
+            "geographicArea": "http://sws.geonames.org/3337387",
+            "downloadUrl": "http://opendata.tec-wl.be/Current%20GTFS/TEC-GTFS.zip",
+            "downloadOnLaunch": true,
+            "updatePeriod": "0 0 3 * * *",
+            "fragmentSize": 50000,
+            "baseURIs": {
+                "stop": "{base_address}/stops/{stop_id}",
+                "trip": "{base_address}/trips/{trips.trip_id}",
+                "route": "{base_address}/routes/{route_short_id}",
+                "connection": "{base_address}/connections/{trips.startTime(YYYYMMDDHHmm)}/{connection.departureStop}/{trips.trip_id}",
+                "resolve": {
+                    "route_short_id": "connection.trip.route.route_id.substring(0,5)"
+                }
+            }
+        }
+    ]
+}

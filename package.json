@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/web-server | node ./bin/datasets"
+    "start": "node inject-base-address.js && node ./bin/web-server | node ./bin/datasets"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -15,6 +15,7 @@
     "fast-csv": "^2.4.1",
     "follow-redirects": "^1.5.9",
     "gtfs-realtime-bindings": "~0.0.4",
+    "gtfs2lc": "^0.8.6",
     "gtfsrt2lc": "^0.2.0",
     "jsonld-stream": "^1.0.4",
     "level": "^2.1.2",
