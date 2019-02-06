@@ -1,0 +1,12 @@
+nginx:
+        image: nginx
+        links:
+                - server:server
+        ports:
+                - "80:80"
+server:
+        build: .
+        ports:
+                - "3000:3000"
+        environment:
+                - LC_BASE=http://tec.openplanner.team

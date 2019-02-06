@@ -8,7 +8,7 @@ WORKDIR /app
 
 RUN npm i
 
-EXPOSE 80
+EXPOSE 3000
 
 ENV LC_BASE http://example.com
 
